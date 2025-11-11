@@ -4,7 +4,7 @@
  */
 
 /**
- * Modified by:
+ * Modified by: Will Dalebroux
  * 
  * Brief summary of modifications:
  */
@@ -19,19 +19,24 @@
  * @brief Signal handler for SIGINT - prints a message and exits
  */
 void handle_signal() {
-    printf("Received a signal\n");
-    exit(1);
+    printf("\nReceived a signal\n");
 }
 
 int main() {
 
     // Register for the signal
     signal(SIGINT, handle_signal);
+    int pid = getpid();
+    printf("PID is: %d\n", pid);
+    printf("Press CTRL + C to send interrupt\n");
+    printf("Exit by suspending with CTRL + Z, then run kill -SIGKILL <pid> from commandline\n");
+
+    
 
     // Wait until a signal is received
     while(1) {
-        printf("Sleeping\n");
-        sleep(1);
+        printf("sleeping...\n");
+        sleep(10);
     }
 
     return 0;
