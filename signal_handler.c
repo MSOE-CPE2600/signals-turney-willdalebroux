@@ -7,6 +7,7 @@
  * Modified by: Will Dalebroux
  * 
  * Brief summary of modifications:
+ * removed exit from signal handler, added printed pid & instructions on exiting
  */
 
 
